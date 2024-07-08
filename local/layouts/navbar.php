@@ -1,10 +1,8 @@
-<div class="navbar">
+<div class="navbar bg-dark text-white">
     <div class="navbar-content">
         <div class="navbar-logo">
-            <a href="/">Framework</a>
+            <a href="/">Accueil</a>
         </div>
-        <a href="/" class="navbar-menu">
-            <i class="fas fa-bars"></i>
-        </a>
+        
     </div>
 </div>
