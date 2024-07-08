@@ -32,8 +32,6 @@ class IndexController extends CommonController{
         parent::setViewInLayout('modules/' . $this->module .'/views/exercice-algo.php');
     }
 
-    
-
     public function exercicecoingeckoAction(){
         $this->layout['title']       = "Page exercice coingecko";
         $this->layout['description'] = '';
@@ -72,14 +70,16 @@ class IndexController extends CommonController{
         }
         try{
             $authorId = $article['id_author'];
-            // var_dump($authorId);
             $infosAuthor = $modelExercice->getAuthorByIdUser($authorId);
-            // var_dump($infosAuthor);
-            // var_dump($infosAuthor['firstname']);
-            // var_dump($infosAuthor['lastname']);
         $this->view['post']['author'] = $infosAuthor;
         $this->view['post']['author']['first_name'] = $infosAuthor['firstname'];
         $this->view['post']['author']['last_name'] = $infosAuthor['lastname'];
+
+        $CommentairesArticle=$modelExercice->getCommentOnArticle($idPost);
+        $this->view['commentaires'] = $CommentairesArticle;
+        
+        
+
 
         
         

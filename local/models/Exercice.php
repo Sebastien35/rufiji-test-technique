@@ -64,6 +64,19 @@ class Exercice extends CommonModels
         
     }   
 
+    public function getCommentOnArticle($id_article){
+        $pdo = $this->pdoConnect();
+        $result = $pdo->prepare("SELECT *
+                                FROM `posts_comments`
+                                JOIN `users` ON `posts_comments`.`user_id` = `users`.`id_user`
+                                WHERE `post_id` = :id_article
+                                ORDER BY `created_at` DESC");
+        $this->bind($result, ':id_article', $id_article);
+        $result->execute();
+        return $result->fetchAll(PDO::FETCH_ASSOC);
+
+    }
+
     
 }
 
