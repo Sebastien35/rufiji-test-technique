@@ -42,6 +42,14 @@ class IndexController extends CommonController{
         
 
         // Retrieve coingecko infos
+        try{
+        $coingecko = new Coingecko();
+        $this->view['cryptos'] = $coingecko->getTop100Cryptos();
+        } catch(Exception $e){
+            $this->view['error'] = $e->getMessage();
+        }
+
+        
 
         parent::setViewInLayout('modules/' . $this->module .'/views/exercice-coingecko.php');
     }
