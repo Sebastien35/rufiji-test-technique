@@ -54,21 +54,45 @@ class IndexController extends CommonController{
         parent::setViewInLayout('modules/' . $this->module .'/views/exercice-coingecko.php');
     }
 
-    public function exercicearticleAction(){
-        $this->layout['title']       = "Page article exercice";
+    public function exercicearticleAction() {
+        $this->layout['title'] = "Page article exercice";
         $this->layout['description'] = '';
-        $this->layout['canonical']   = WEBSITE_URL . '/exercice';
-        $this->layout['selected']    = 'exercice';
-
+        $this->layout['canonical'] = WEBSITE_URL . '/exercice';
+        $this->layout['selected'] = 'exercice';
+    
         $idPost = 1;
-
+        
         $modelExercice = new Exercice();
-        $getInfosPost = $modelExercice->getPostById($idPost)[0];
+        try{
+        $InfosPost = $modelExercice->getPostById($idPost);
+        $article = $InfosPost[0];
+        $this->view['post'] = $article;
+        } catch(Exception $e){
+            $this->view['error'] = $e->getMessage();
+        }
+        try{
+            $authorId = $article['id_author'];
+            // var_dump($authorId);
+            $infosAuthor = $modelExercice->getAuthorByIdUser($authorId);
+            // var_dump($infosAuthor);
+            // var_dump($infosAuthor['firstname']);
+            // var_dump($infosAuthor['lastname']);
+        $this->view['post']['author'] = $infosAuthor;
+        $this->view['post']['author']['first_name'] = $infosAuthor['firstname'];
+        $this->view['post']['author']['last_name'] = $infosAuthor['lastname'];
 
-        $getInfosPost['author'] = $modelExercice->getAuthorByIdUser(30);
+        
+        
+        
+        
+        
+        
+        } catch(Exception $e){
+            $this->view['error'] = $e->getMessage();
+        }
+    
 
-        $this->view['post'] = $getInfosPost;
-
-        parent::setViewInLayout('modules/' . $this->module .'/views/exercice-article.php');
+    
+        parent::setViewInLayout('modules/' . $this->module . '/views/exercice-article.php');
     }
 }
