@@ -6,6 +6,8 @@ class IndexController extends CommonController{
         $this->module = 'exercice';
     }
 
+    
+
     public function exerciceAction(){
         $this->layout['title']       = "Page exercice";
         $this->layout['description'] = '';
@@ -20,9 +22,9 @@ class IndexController extends CommonController{
         $this->layout['description'] = '';
         $this->layout['canonical']   = WEBSITE_URL . '/exercice';
         $this->layout['selected']    = 'exercice';
-
+        //Je créer un array pour utiliser la fonction
         $exercice = new Exercice();
-        for($i = 0; $i < 10; $i++){
+        for($i = 0; $i < 20; $i++){
             $tableau[] = rand(0, 100);
         }
         $ProcessedTableau = $exercice->PlusGrandeValeurPaireTableau($tableau);
@@ -77,15 +79,6 @@ class IndexController extends CommonController{
 
         $CommentairesArticle=$modelExercice->getCommentOnArticle($idPost);
         $this->view['commentaires'] = $CommentairesArticle;
-        
-        
-
-
-        
-        
-        
-        
-        
         
         } catch(Exception $e){
             $this->view['error'] = $e->getMessage();

@@ -53,6 +53,8 @@ RewriteRule ^/ /index.php?lang=$1&f=home&a=index [L,QSA]
 ####################
 ####  Exercice  ####
 ####################
+
+
 RewriteRule ^exercice-algo$ /index.php?f=exercice&a=exercicealgo [L,QSA]
 RewriteRule ^exercice-algo/$ /exercice-algo [L,QSA,R=301]
 
