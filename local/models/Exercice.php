@@ -35,5 +35,33 @@ class Exercice extends CommonModels
         $result->execute();
         return $result->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function PlusGrandeValeurPaireTableau($tableau): String{
+        // Plus grand prendra la valeur de la plus grande valeur paire, position prendra la position de cette valeur dans le tableau
+        $PlusGrand = null;
+        $PositionPlusGrand = -1; // Comme c'est un index j'utilise -1 pour dire que je n'ai pas encore trouvé de valeur paire
+
+        foreach($tableau as $Position => $Valeur){
+            // Vérifier si pair  ou si plus grand est null 
+            if($Valeur % 2 == 0){
+                if($PlusGrand ===  null || $Valeur > $PlusGrand){
+                    $PlusGrand = $Valeur;
+                    $PositionPlusGrand = $Position;
+                }
+            }
+        }
+        if($PlusGrand !== null){
+            return "La plus grande valeur paire est $PlusGrand et se trouve à la position $PositionPlusGrand";
+        }else{
+            return "Il n'y a pas de valeur paire dans le tableau";
+        }
+        
+    }   
+
+    
 }
+
+
+
+
 
