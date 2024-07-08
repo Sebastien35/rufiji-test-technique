@@ -28,6 +28,7 @@
 		</ul> <br><br>
 		Documentation : <a href="https://docs.coingecko.com/reference/introduction" target="_blank">https://docs.coingecko.com/reference/introduction</a>
 		<br/><br/>Tu es libre d'afficher ça à ta manière, l'idéal serait que ce soit sous forme d'un joli tableau :) 
+		<a href="/exercice-coingecko" target="_blank"><b>Page exercice</b></a>
 	</div>
 
 	<div class="container">
