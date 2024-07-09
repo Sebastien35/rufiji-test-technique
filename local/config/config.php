@@ -26,7 +26,7 @@
             $websiteUrl       = $http . $_SERVER['HTTP_HOST'];
             $keyHashJwt       = '^t8_KNi`PW~*czf';
             $coinGeckoApiUrl  = "https://api.coingecko.com/api/v3/";
-            $coinGeckoApiKey =  "CG-j2iQAgSkQXHCkdVPbHqBuyjf";
+            $coinGeckoApiKey =  "";
         break;
         case 'prod' :
         break;
