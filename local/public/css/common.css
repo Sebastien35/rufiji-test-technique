@@ -19,9 +19,9 @@ body {
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
 }
 
+
 .navbar {
-    padding: 20px;
-    background: white;
+    padding: 20px;;
     position: absolute;
     top: 0;
     left: 0;
@@ -33,16 +33,23 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
 }
 
 .navbar .navbar-content .navbar-logo {
     font-size: 1.5rem;
 }
 
+
+
 footer {
     background: #262626;
     color: white;
     padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    
 }
 
 footer .footer-content {

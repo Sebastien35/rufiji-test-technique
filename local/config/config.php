@@ -1,4 +1,5 @@
 <?php
+
     session_cache_expire(120);
     ini_set("session.gc_maxlifetime","7200");
     session_start();
@@ -25,6 +26,7 @@
             $websiteUrl       = $http . $_SERVER['HTTP_HOST'];
             $keyHashJwt       = '^t8_KNi`PW~*czf';
             $coinGeckoApiUrl  = "https://api.coingecko.com/api/v3/";
+            $coinGeckoApiKey =  "";
         break;
         case 'prod' :
         break;
@@ -36,6 +38,7 @@
     defined('WEBSITE_URL')        || define('WEBSITE_URL', $websiteUrl);
     defined('KEY_HASH_JWT')       || define('KEY_HASH_JWT', $keyHashJwt);
     defined('COINGECKO_API_URL')  || define('COINGECKO_API_URL', $coinGeckoApiUrl);
+    defined('COINGECKO_API_KEY')  || define('COINGECKO_API_KEY', $coinGeckoApiKey);
 
     if(DEV_MODE == 'prod'){
         ini_set("display_errors", 1);
