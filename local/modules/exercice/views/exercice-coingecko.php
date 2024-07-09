@@ -5,6 +5,7 @@
         
         <h1>Exercice coingecko</h1>
         <p>Voici les 100 premières cryptomonnaies sur coingecko</p>
+        <p>Taux de change EUR / USD :<?= $this->view['rate'] ?> </p><a href="https://app.currencyapi.com" target="_blank">Source</a>
 
         <?php if(isset($this->view['error'])): ?>
             <div class="alert alert-danger" role="alert">
@@ -36,7 +37,7 @@
                             <td><?= $crypto['name'] ?></td>
                             <td><?= $crypto['symbol']?></td>
                             <td><?= round($crypto['current_price'], 4) ?></td>
-                            <td><?= round($crypto['current_price']*1.08695652174, 4) ?></td>
+                            <td><?= round($crypto['current_price']*$this->view['rate'], 4) ?></td>
                             <td class="var"><?= round($crypto['price_change_percentage_24h_in_currency'], 2) ?>%</td>
                             <td class="var"><?= round($crypto['price_change_percentage_7d_in_currency'], 2) ?>%</td>
                             <td class="var"><?= round($crypto['price_change_percentage_30d_in_currency'],2) ?>%</td>

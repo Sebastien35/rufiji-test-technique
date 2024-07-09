@@ -27,6 +27,7 @@
             $keyHashJwt       = '^t8_KNi`PW~*czf';
             $coinGeckoApiUrl  = "https://api.coingecko.com/api/v3/";
             $coinGeckoApiKey =  "";
+            $currencyApiKey = "";
         break;
         case 'prod' :
         break;
@@ -39,6 +40,7 @@
     defined('KEY_HASH_JWT')       || define('KEY_HASH_JWT', $keyHashJwt);
     defined('COINGECKO_API_URL')  || define('COINGECKO_API_URL', $coinGeckoApiUrl);
     defined('COINGECKO_API_KEY')  || define('COINGECKO_API_KEY', $coinGeckoApiKey);
+    defined('CURRENCY_API_KEY')   || define('CURRENCY_API_KEY', $currencyApiKey);
 
     if(DEV_MODE == 'prod'){
         ini_set("display_errors", 1);

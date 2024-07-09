@@ -45,6 +45,7 @@ class IndexController extends CommonController{
         try{
         $coingecko = new Coingecko();
         $this->view['cryptos'] = $coingecko->getTop100Cryptos();
+        $this->view['rate'] = $coingecko->getCurrentEurToUsdRate();
         } catch(Exception $e){
             $this->view['error'] = $e->getMessage();
         }
